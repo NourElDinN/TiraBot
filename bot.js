@@ -18,7 +18,7 @@ client.on('message', msg => {
 
 const moment = ('moment');
 
- 
+ const money = ('discord-money');
 
  
     client.on('message', message => {
@@ -27,7 +27,7 @@ const moment = ('moment');
         // Example: Fetching Balance
         if (message.content.toUpperCase() === `${prefix}credits`) {
  
-            client.fetchBal(message.author.id).then((i) => {
+            money.fetchBal(message.author.id).then((i) => {
                 message.channel.send(`**Balance:** ${i.money}`);
             })
  
@@ -36,7 +36,7 @@ const moment = ('moment');
  
         if (message.content.toUpperCase() === `${prefix}payyou`) {
 
-            client.updateBal(message.author.id, 1000000) //.then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
+            money.updateBal(message.author.id, 1000000) //.then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
                  message.channel.send(`**You got $1000000!**\n**New Balance:** ${i.money}`);
             
  
@@ -44,7 +44,7 @@ const moment = ('moment');
  
         if (message.content.toUpperCase() === `${prefix}payfine`) {
  
-            client.updateBal(message.author.id, -500).then((i) => { // Since the 'value' is -500, it will 'add' -500, making the bal $500 lower.
+            money.updateBal(message.author.id, -500).then((i) => { // Since the 'value' is -500, it will 'add' -500, making the bal $500 lower.
                 message.channel.send(`**You paid your fine of $500!**\n**New Balance:** ${i.money}`);
             })
  
